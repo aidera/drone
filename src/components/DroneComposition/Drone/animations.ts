@@ -1,6 +1,7 @@
 import { ObjectMap } from '@react-three/fiber';
 import { GLTF } from 'three/examples/jsm/Addons.js';
 import gsap from 'gsap';
+import { Mesh, MeshStandardMaterial } from 'three';
 
 export const setDroneInitialAnimationPositions = (model: GLTF & ObjectMap) => {
   const spinners = [
@@ -57,7 +58,6 @@ export const runDroneTurnOnAnimation = (
     duration: 2,
     ease: 'back.out(3)',
     onComplete: () => {
-      onStarted();
       runIdleAnimation(model);
     },
   });
@@ -90,6 +90,17 @@ export const runDroneTurnOnAnimation = (
       duration: 1.4,
       ease: 'power1.inOut',
     });
+
+  /** Lighters */
+  setTimeout(() => {
+    runLighterAnimation(model);
+  }, 1000);
+
+  /** Allow other functions */
+  setTimeout(() => {
+    onStarted();
+  }, 1000);
+  
 };
 
 export const runIdleAnimation = (model: GLTF & ObjectMap) => {
@@ -122,4 +133,31 @@ export const addMouseMoveRotation = (model: GLTF & ObjectMap) => {
   return () => {
     window.removeEventListener('mousemove', handleMouseMove);
   };
+};
+
+export const runLighterAnimation = (model: GLTF & ObjectMap) => {
+  const lighters: Mesh[] = [];
+
+  model.scene.traverse((child) => {
+    if ((child as Mesh).isMesh) {
+      const mesh = child as Mesh;
+      const material = mesh.material as MeshStandardMaterial;
+
+      if (material.name === 'Lighter') {
+        lighters.push(mesh);
+      }
+    }
+  });
+
+  lighters.forEach((lighter, index) => {
+    const material = lighter.material as MeshStandardMaterial;
+    gsap.to(material, {
+      emissiveIntensity: 5,
+      duration: 1,
+      ease: 'power4.Out',
+      yoyo: true,
+      repeat: -1,
+      delay: index * 0.05,
+    });
+  });
 };

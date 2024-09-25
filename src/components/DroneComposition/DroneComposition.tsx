@@ -5,6 +5,7 @@ import {
   Bloom,
   DepthOfField,
 } from '@react-three/postprocessing';
+import { OrbitControls } from '@react-three/drei';
 import Loader from './Loader';
 import DroneModel from './Drone/DroneModel';
 import Camera from './Camera';
@@ -21,12 +22,13 @@ export default function DroneComposition() {
         <DroneModel />
         <FloorModel />
         <FogModel />
-        
+
         <SpotLight1 />
         <SpotLight2 />
 
         <Camera />
         {/* <OrbitControls /> */}
+
         <EffectComposer>
           <Bloom intensity={0.5} />
           <DepthOfField

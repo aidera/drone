@@ -7,7 +7,7 @@ import {
 } from 'three';
 import { GLTF } from 'three/examples/jsm/Addons.js';
 
-export const setMaterials = (model: GLTF & ObjectMap) => {
+export const setMaterials = (model: GLTF & ObjectMap): GLTF & ObjectMap => {
   model.scene.traverse((child) => {
     if ((child as Mesh).isMesh) {
       const mesh = child as Mesh;
@@ -30,11 +30,15 @@ export const setMaterials = (model: GLTF & ObjectMap) => {
 
       if ((mesh.material as Material).name === 'Lighter') {
         mesh.material = new MeshStandardMaterial({
-          color: '#64FFFA',
+          color: '#FFFFFF',
           emissive: '#64FFFA',
-          emissiveIntensity: 5,
+          emissiveIntensity: 0.05,
+          name: 'Lighter',
+          roughness: 1,
         });
       }
     }
   });
+
+  return model;
 };
