@@ -9,7 +9,7 @@ import {
 
 import Loader from './Loader';
 import DroneSL from './DroneSL';
-import DroneModel from './DroneModel';
+import DroneModel from './Drone/DroneModel';
 import Camera from './Camera';
 import AmbientLight from './AmbientLight';
 import FloorModel from './FloorModel';
