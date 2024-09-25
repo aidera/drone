@@ -18,10 +18,10 @@ export const setMaterials = (model: GLTF & ObjectMap) => {
         mesh.material = new MeshPhysicalMaterial({
           color: '#21381D',
           roughness: 0,
-          transmission: 1,
-          opacity: 1,
+          transmission: 0.5,
+          opacity: 0.5,
           transparent: true,
-          reflectivity: 0.9,
+          reflectivity: 1,
           ior: 1.5,
           clearcoat: 1,
           clearcoatRoughness: 0,
