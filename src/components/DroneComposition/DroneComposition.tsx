@@ -1,20 +1,17 @@
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import {
   EffectComposer,
   Bloom,
   DepthOfField,
 } from '@react-three/postprocessing';
-
 import Loader from './Loader';
-import DroneSL from './DroneSL';
 import DroneModel from './Drone/DroneModel';
 import Camera from './Camera';
-import AmbientLight from './AmbientLight';
 import FloorModel from './FloorModel';
 import FogModel from './FogModel';
-import DroneSL2 from './DroneSL2';
+import SpotLight1 from './SpotLight1';
+import SpotLight2 from './SpotLight2';
 
 export default function DroneComposition() {
   return (
@@ -23,16 +20,13 @@ export default function DroneComposition() {
       <Suspense fallback={<Loader />}>
         <DroneModel />
         <FloorModel />
-
         <FogModel />
-
-        {/* <AmbientLight /> */}
-        <DroneSL />
-        <DroneSL2 />
+        
+        <SpotLight1 />
+        <SpotLight2 />
 
         <Camera />
         {/* <OrbitControls /> */}
-
         <EffectComposer>
           <Bloom intensity={0.5} />
           <DepthOfField

@@ -51,12 +51,11 @@ export const runDroneTurnOnAnimation = (
   });
 
   /** Object */
-
   gsap.to(model.scene.position, {
     y: 1,
     delay: 1,
     duration: 2,
-    ease: 'power1.inOut',
+    ease: 'back.out(3)',
     onComplete: () => {
       onStarted();
       runIdleAnimation(model);
@@ -67,8 +66,8 @@ export const runDroneTurnOnAnimation = (
     .timeline()
     .to(model.scene.rotation, {
       x: -0.08,
-      delay: 0.6,
-      duration: 0.5,
+      delay: 0.7,
+      duration: 0.4,
       ease: 'power1.inOut',
     })
 
@@ -82,7 +81,7 @@ export const runDroneTurnOnAnimation = (
     .timeline()
     .to(model.scene.rotation, {
       y: -0.05,
-      delay: 0.8,
+      delay: 0.5,
       duration: 0.5,
       ease: 'power1.inOut',
     })
@@ -110,9 +109,9 @@ export const addMouseMoveRotation = (model: GLTF & ObjectMap) => {
     const mouseY = -(event.clientY / innerHeight) * 2 + 1;
 
     gsap.to(model.scene.rotation, {
-      x: mouseY * -0.05,
+      x: mouseY * -0.08,
       y: mouseX * 0.5,
-      duration: 0.3,
+      duration: 0.5,
       ease: 'power1.out',
       overwrite: true,
     });
