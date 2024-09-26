@@ -1,0 +1,55 @@
+.container {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 120px 80px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  h1 {
+    font-size: 82px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #1369ca;
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: 118px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #ecd900;
+    line-height: 1;
+    margin-top: -30px;
+  }
+
+  p {
+    max-width: 494px;
+    font-weight: 300;
+    line-height: 1.2;
+    text-align: justify;
+  }
+}
+
+.btn-container {
+  margin-top: 24px;
+
+  a {
+    text-transform: uppercase;
+    padding: 16px 48px;
+    font-size: 18px;
+    border-radius: 8px;
+    background: #1369ca;
+    display: inline-block;
+    transition: 0.15s background;
+
+    &:hover {
+        background: #ded13a;
+    }
+  }
+}
