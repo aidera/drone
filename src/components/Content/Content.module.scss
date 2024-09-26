@@ -11,12 +11,31 @@
   overflow-x: hidden;
   overflow-y: auto;
 
+  @media (max-width: 930px) {
+    padding: 80px 24px;
+  }
+
+  @media (max-width: 860px) {
+    position: relative;
+    background: #050505;
+    min-height: auto;
+    width: 100%;
+    padding-top: 120px;
+  }
+
   h1 {
     font-size: 82px;
     font-weight: 800;
     text-transform: uppercase;
     color: #1369ca;
     line-height: 1;
+
+    @media (max-width: 860px) {
+      font-size: 14vw;
+    }
+    @media (max-width: 630px) {
+      font-size: 13vw;
+    }
   }
 
   h2 {
@@ -26,6 +45,14 @@
     color: #ecd900;
     line-height: 1;
     margin-top: -30px;
+
+    @media (max-width: 860px) {
+      font-size: 20vw;
+      margin-top: -5vw;
+    }
+    @media (max-width: 630px) {
+      font-size: 18.5vw;
+    }
   }
 
   p {
@@ -33,6 +60,10 @@
     font-weight: 300;
     line-height: 1.2;
     text-align: justify;
+
+    @media (max-width: 860px) {
+      width: 77vw;
+    }
   }
 }
 
@@ -49,7 +80,7 @@
     transition: 0.15s background;
 
     &:hover {
-        background: #ded13a;
+      background: #ded13a;
     }
   }
 }
