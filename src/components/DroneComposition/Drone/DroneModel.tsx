@@ -11,7 +11,7 @@ import {
 export default function DroneModel() {
   const [canBeControlled, setCanBeControlled] = useState<boolean>(false);
   const droneRef = useRef<ThreeElements['primitive']>();
-  const droneModel = useLoader(GLTFLoader, '/drone.glb');
+  const droneModel = useLoader(GLTFLoader, `${import.meta.env.BASE_URL}drone.glb`);
 
   useEffect(() => {
     if (droneModel) {
