@@ -13,6 +13,7 @@ import FloorModel from './FloorModel';
 import FogModel from './FogModel';
 import SpotLight1 from './SpotLight1';
 import SpotLight2 from './SpotLight2';
+import SpotLight3 from './SpotLight3';
 
 export default function DroneComposition() {
   return (
@@ -25,6 +26,7 @@ export default function DroneComposition() {
 
         <SpotLight1 />
         <SpotLight2 />
+        <SpotLight3 />
 
         <Camera />
         {/* <OrbitControls /> */}

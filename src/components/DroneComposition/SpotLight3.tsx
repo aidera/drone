@@ -3,7 +3,7 @@ import { useThree } from '@react-three/fiber';
 import { PCFSoftShadowMap, SpotLight } from 'three';
 import gsap from 'gsap';
 
-export default function SpotLight2() {
+export default function SpotLight3() {
   const lightRef = useRef<SpotLight>(null);
 
   const { gl } = useThree();
@@ -27,12 +27,13 @@ export default function SpotLight2() {
 
       // GSAP animation
       gsap.to(lightRef.current.position, {
-        x: lightRef.current.position.y + 6,
-        duration: 5,
-        yoyo: true,
+        x: 100,
+        duration: 3,
         repeat: -1,
-        delay: 0.4,
-        ease: 'power1.inOut',
+        repeatDelay: 6,
+        delay: 4,
+        ease: 'linear',
+        yoyo: false,
       });
     }
   }, [gl]);
@@ -41,11 +42,11 @@ export default function SpotLight2() {
     <spotLight
       ref={lightRef}
       castShadow={true}
-      position={[8, 12, 10]}
-      intensity={1500}
+      position={[-100, 12, 8]}
+      intensity={400}
       color={'#8CC4FF'}
       distance={32}
-      angle={Math.PI / 8}
+      angle={Math.PI / 2}
       penumbra={1}
     />
   );
