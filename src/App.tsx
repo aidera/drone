@@ -9,6 +9,7 @@ function App() {
       <div className={styles['drone-container']}>
         <DroneComposition />
       </div>
+      <div className={styles['canvas-overlay']}></div>
     </main>
   );
 }
